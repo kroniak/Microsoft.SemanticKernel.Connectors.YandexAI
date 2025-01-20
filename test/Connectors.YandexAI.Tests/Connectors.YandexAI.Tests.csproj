@@ -17,7 +17,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Connectors.YandexAI\Connectors.YandexAI.csproj"/>
-        <ProjectReference Include="..\Connectors.YandexAI\Connectors.YandexAI.csproj"/>
     </ItemGroup>
 
 </Project>

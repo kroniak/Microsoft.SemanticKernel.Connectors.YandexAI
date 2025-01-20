@@ -5,15 +5,27 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>Microsoft.SemanticKernel.Connectors.YandexAI</RootNamespace>
-        <Company>kroniak.net</Company>
-        <Author>kroniak</Author>
         <PackageId>Microsoft.SemanticKernel.Connectors.YandexAI</PackageId>
         <Version>1.0.0-preview</Version>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        
+        <Company>kroniak.net</Company>
+        <Authors>kroniak</Authors>
+        <Description>This package provides connector for YandexAI that extends functionality of Microsoft Semantic Kernel Core.</Description>
+        <Copyright>(c) me@kroniak.net 2025</Copyright>
+        <RepositoryURL>https://github.com/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI</RepositoryURL>
+        <PackageTags>SemanticKernel, ai, llm, yandex</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.33.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+        <None Include="LICENSE" Pack="true" PackagePath=""/>
     </ItemGroup>
 
 </Project>
