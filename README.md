@@ -1,5 +1,12 @@
 # Microsoft.SemanticKernel.Connectors.YandexAI
 
+## Status
+
+[![Nuget package](https://img.shields.io/nuget/vpre/Kroniak.Net.SemanticKernel.Connectors.YandexAI)](https://www.nuget.org/packages/Kroniak.Net.SemanticKernel.Connectors.YandexAI/)  ![example workflow](https://github.com/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI/actions/workflows/dotnet.yml/badge.svg?branch=main)
+## Overview
+
+[![License: MIT](https://img.shields.io/github/license/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI)](https://github.com/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI/blob/main/LICENSE)
+
 The `Microsoft.SemanticKernel.Connectors.YandexAI` project is a robust connector between Microsoft's SemanticKernel and
 Yandex's AI service. This project offers an easy integration with Yandex's AI capabilities, enabling developers with
 virtually endless possibilities in the field of artificial intelligence.
