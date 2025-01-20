@@ -48,6 +48,7 @@ internal sealed record ChatCompletionRequest
     /// <param name="message">The chat message to add.</param>
     internal void AddMessage(YandexAIChatMessage message)
     {
+        Verify.NotNull(message);
         Messages.Add(message);
     }
 }

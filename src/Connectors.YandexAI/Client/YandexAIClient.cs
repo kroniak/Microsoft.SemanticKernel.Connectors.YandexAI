@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Http;
 using Microsoft.SemanticKernel.Text;
+#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace Microsoft.SemanticKernel.Connectors.YandexAI.Client;
 
