@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <RootNamespace>Microsoft.SemanticKernel.Connectors.YandexAI</RootNamespace>
         <PackageId>Microsoft.SemanticKernel.Connectors.YandexAI</PackageId>
-        <Version>1.0.0-preview</Version>
+        <Version>1.0.0-alpha</Version>
         
         <Company>kroniak.net</Company>
         <Authors>kroniak</Authors>
@@ -24,8 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="README.md" Pack="true" PackagePath="\"/>
-        <None Include="LICENSE" Pack="true" PackagePath=""/>
+        <None Include="../../README.md" Pack="true" PackagePath="/"/>
+        <None Include="../../LICENSE" Pack="true" PackagePath="/"/>
     </ItemGroup>
 
 </Project>
