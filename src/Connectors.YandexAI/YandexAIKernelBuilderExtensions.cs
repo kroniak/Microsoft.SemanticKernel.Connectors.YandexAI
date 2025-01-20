@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel.ChatCompletion;
@@ -8,6 +9,7 @@ using Microsoft.SemanticKernel.Http;
 namespace Microsoft.SemanticKernel;
 
 // ReSharper disable once InconsistentNaming
+[ExcludeFromCodeCoverage]
 public static class YandexAIKernelBuilderExtensions
 {
     #region Chat Completion

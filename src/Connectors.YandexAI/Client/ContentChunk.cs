@@ -7,6 +7,7 @@ namespace Microsoft.SemanticKernel.Connectors.YandexAI.Client;
 /// /
 [JsonDerivedType(typeof(TextChunk))]
 [JsonDerivedType(typeof(ImageUrlChunk))]
+[ExcludeFromCodeCoverage]
 internal abstract class ContentChunk(ContentChunkType type)
 {
     /// <summary>
@@ -25,6 +26,7 @@ internal abstract class ContentChunk(ContentChunkType type)
 /// <seealso cref="ContentChunk" />
 /// <seealso cref="YandexAIClient" />
 /// <seealso cref="YandexAIChatMessage" />
+[ExcludeFromCodeCoverage]
 internal class TextChunk(string text) : ContentChunk(ContentChunkType.Text)
 {
     /// <summary>
@@ -37,6 +39,7 @@ internal class TextChunk(string text) : ContentChunk(ContentChunkType.Text)
 /// <summary>
 ///     Represents a content chunk containing an image URL.
 /// </summary>
+[ExcludeFromCodeCoverage]
 internal class ImageUrlChunk(Uri imageUrl) : ContentChunk(ContentChunkType.ImageUrl)
 {
     /// <summary>

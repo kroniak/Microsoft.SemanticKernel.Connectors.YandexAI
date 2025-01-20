@@ -1,10 +1,14 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
+
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace Microsoft.SemanticKernel.Connectors.YandexAI.Client;
 
 /// <summary>
 ///     Represents the result of a chat completion response.
 /// </summary>
+[ExcludeFromCodeCoverage]
 internal sealed record ChatCompletionResponseResult
 {
     /// <summary>
@@ -17,6 +21,7 @@ internal sealed record ChatCompletionResponseResult
 /// <summary>
 ///     Represents a set of responses for chat message completion.
 /// </summary>
+[ExcludeFromCodeCoverage]
 internal sealed record ChatCompletionResponses
 {
     /// <summary>
@@ -41,6 +46,7 @@ internal sealed record ChatCompletionResponses
 /// <summary>
 ///     Represents an alternative option for chat message completion.
 /// </summary>
+[ExcludeFromCodeCoverage]
 internal sealed record ChatCompletionAlternative
 {
     /// <summary>

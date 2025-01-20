@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 using Microsoft.SemanticKernel.Connectors.YandexAI.Helpers;
 
@@ -6,6 +7,9 @@ namespace Microsoft.SemanticKernel.Connectors.YandexAI.Client;
 /// <summary>
 ///     Represents usage information related to Yandex AI.
 /// </summary>
+[ExcludeFromCodeCoverage]
+// ReSharper disable once ClassNeverInstantiated.Global
+// ReSharper disable once InconsistentNaming
 internal sealed record YandexAIUsage
 {
     /// <summary>

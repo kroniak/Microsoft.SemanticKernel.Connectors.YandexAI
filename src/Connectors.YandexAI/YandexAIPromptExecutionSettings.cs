@@ -14,7 +14,7 @@ internal sealed class YandexAIPromptExecutionSettings : PromptExecutionSettings
     private object? _responseFormat;
     private IList<string>? _stop;
 
-    private double _temperature = 0.7;
+    private double _temperature = 0.3;
 
     /// <summary>
     ///     Gets or sets the stop sequences to use for the completion.
@@ -51,7 +51,7 @@ internal sealed class YandexAIPromptExecutionSettings : PromptExecutionSettings
     }
 
     /// <summary>
-    ///     Default: 0.7
+    ///     Default: 0.3
     ///     What sampling temperature to use, between 0.0 and 1.0. Higher values like 0.8 will make the output more random,
     ///     while lower values like 0.2 will make it more focused and deterministic.
     /// </summary>
