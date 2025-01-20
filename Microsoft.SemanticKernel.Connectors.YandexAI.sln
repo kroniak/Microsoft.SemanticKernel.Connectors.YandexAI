@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connectors.YandexAI", "src\Connectors.YandexAI\Connectors.YandexAI.csproj", "{E6E503CE-9D67-4BFD-9EAE-09BE7316973B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connectors.YandexAI.Console", "src\Connectors.YandexAI.Console\Connectors.YandexAI.Console.csproj", "{AC2209B9-2581-49EC-B6DC-F730BCC2AA4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6E503CE-9D67-4BFD-9EAE-09BE7316973B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E503CE-9D67-4BFD-9EAE-09BE7316973B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E503CE-9D67-4BFD-9EAE-09BE7316973B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E503CE-9D67-4BFD-9EAE-09BE7316973B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2209B9-2581-49EC-B6DC-F730BCC2AA4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2209B9-2581-49EC-B6DC-F730BCC2AA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2209B9-2581-49EC-B6DC-F730BCC2AA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2209B9-2581-49EC-B6DC-F730BCC2AA4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
