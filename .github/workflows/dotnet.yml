@@ -25,3 +25,6 @@ jobs:
       run: dotnet test --no-build --verbosity normal --configuration Release
     - name: Pack NuGet package
       run: dotnet pack ./src/Connectors.YandexAI --configuration Release --no-build --output ./output
+    - name: Publish NuGet package
+      env: NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ./output/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
