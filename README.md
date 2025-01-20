@@ -70,7 +70,7 @@ the [official Microsoft Prompty documentation](https://prompty.ai/).
 ## Installation
 
 ```bash
-dotnet add package Microsoft.SemanticKernel.Connectors.YandexAI
+dotnet add package Kroniak.Net.SemanticKernel.Connectors.YandexAI
 ```
 
 ## Configuration to Yandex AI

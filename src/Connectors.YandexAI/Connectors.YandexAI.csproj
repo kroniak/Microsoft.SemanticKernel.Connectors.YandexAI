@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>Microsoft.SemanticKernel.Connectors.YandexAI</RootNamespace>
-        <PackageId>Microsoft.SemanticKernel.Connectors.YandexAI</PackageId>
+        <PackageId>Kroniak.Net.SemanticKernel.Connectors.YandexAI</PackageId>
         <Version>1.0.0-alpha</Version>
         
         <Company>kroniak.net</Company>
