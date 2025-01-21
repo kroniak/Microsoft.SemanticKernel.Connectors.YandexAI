@@ -3,6 +3,7 @@
 ## Status
 
 [![Nuget package](https://img.shields.io/nuget/vpre/Kroniak.Net.SemanticKernel.Connectors.YandexAI)](https://www.nuget.org/packages/Kroniak.Net.SemanticKernel.Connectors.YandexAI/)  ![example workflow](https://github.com/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI/actions/workflows/dotnet.yml/badge.svg?branch=main)
+
 ## Overview
 
 [![License: MIT](https://img.shields.io/github/license/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI)](https://github.com/kroniak/Microsoft.SemanticKernel.Connectors.YandexAI/blob/main/LICENSE)
@@ -77,54 +78,86 @@ the [official Microsoft Prompty documentation](https://prompty.ai/).
 ## Installation
 
 ```bash
-dotnet add package Kroniak.Net.SemanticKernel.Connectors.YandexAI
+dotnet add package Kroniak.Net.SemanticKernel.Connectors.YandexAI --prerelease
 ```
 
 ## Configuration to Yandex AI
 
-Let's start configuration with Yandex GPT 4 [official docs](https://yandex.cloud/ru/docs/foundation-models/quickstart/yandexgpt)
+Let's start configuration with Yandex GPT
+4 [official docs](https://yandex.cloud/ru/docs/foundation-models/quickstart/yandexgpt)
 
 ## Usage
 
 ```csharp
+using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.SemanticKernel;
+
+// =========== CONFIG ===========
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 var folderId = config.GetSection("YandexAI")["FolderId"] ?? throw new InvalidOperationException();
 var apiKey = config.GetSection("YandexAI")["ApiKey"] ?? throw new InvalidOperationException();
-
 const string deployment = "yandexgpt/latest";
 
-Console.WriteLine("Start app");
+// =========== APP ===========
+using var factory = LoggerFactory.Create(builder =>
+{
+    builder.AddConsole();
+    builder.SetMinimumLevel(LogLevel.Debug);
+});
+var logger = factory.CreateLogger("YandexAI Console");
+
+logger.LogInformation("=========== BUILD KERNEL ===========");
 
 var kernel = Kernel.CreateBuilder()
     .AddYandexAIChatCompletion(deployment, apiKey, folderId)
     .Build();
 
-// update the input below to match your prompty
-KernelArguments kernelArguments = new()
+await WithStopWatch(async () =>
 {
-    { "question", "What can you tell me about your tents?" },
-};
+    logger.LogInformation("1. Start prompt promties/basic.prompty");
 
-Console.WriteLine("1. Start prompt promties/basic.prompty");
+    KernelArguments kernelArguments = new()
+    {
+        { "question", "What can you tell me about your tents?" }
+    };
 
-var prompty = kernel.CreateFunctionFromPromptyFile("promties/basic.prompty");
-var result = await prompty.InvokeAsync<string>(kernel, kernelArguments);
+    var prompty = kernel.CreateFunctionFromPromptyFile("promties/basic.prompty");
+    var result = await prompty.InvokeAsync<string>(kernel, kernelArguments);
+    logger.LogInformation(result);
+});
 
-Console.WriteLine(result);
+await WithStopWatch(async () =>
+{
+    logger.LogInformation("2. Start prompt promties/town.prompty");
+    var prompty = kernel.CreateFunctionFromPromptyFile("promties/town.prompty");
+    var result = await prompty.InvokeAsync<string>(kernel);
+    logger.LogInformation(result);
+});
 
-Console.WriteLine("2. Start prompt promties/town.prompty");
+await WithStopWatch(async () =>
+{
+    logger.LogInformation("3. Start prompt promties/space-tags-suggestion.prompty");
+    var prompty = kernel.CreateFunctionFromPromptyFile("promties/space-tags-suggestion.prompty");
+    var result = await prompty.InvokeAsync<string>(kernel);
+    logger.LogInformation(result);
+});
 
-prompty = kernel.CreateFunctionFromPromptyFile("promties/town.prompty");
-result = await prompty.InvokeAsync<string>(kernel);
+logger.LogInformation("END");
+return;
 
-Console.WriteLine(result);
+async Task WithStopWatch(Func<Task> action)
+{
+    var stopWatch = new Stopwatch();
+    stopWatch.Start();
 
-Console.WriteLine("3. Start prompt promties/space-tags-suggestion.prompty");
+    await action();
 
-prompty = kernel.CreateFunctionFromPromptyFile("promties/space-tags-suggestion.prompty");
-result = await prompty.InvokeAsync<string>(kernel);
+    stopWatch.Stop();
+    var ts = stopWatch.Elapsed;
+    var elapsedTime = $"{ts.Hours:00}:{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds / 10:00}";
 
-Console.WriteLine(result);
-
-Console.WriteLine("END");
+    logger.LogInformation("RunTime {ElapsedTime}", elapsedTime);
+}
 ```
